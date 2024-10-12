@@ -1,0 +1,30 @@
+
+.notify-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.notify-button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+button {
+  margin-left: 8px;
+}
+
+.send-modal-container-card {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 400px;
+}

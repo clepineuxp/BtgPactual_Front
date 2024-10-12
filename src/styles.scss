@@ -1,0 +1,29 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$BtgPactual_Front-primary: mat.define-palette(mat.$indigo-palette);
+$BtgPactual_Front-accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
+$BtgPactual_Front-warn: mat.define-palette(mat.$red-palette);
+
+$BtgPactual_Front-theme: mat.define-light-theme((
+  color: (
+    primary: $BtgPactual_Front-primary,
+    accent: $BtgPactual_Front-accent,
+    warn: $BtgPactual_Front-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+@include mat.all-component-themes($BtgPactual_Front-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dialog-container .mat-dialog-container {
+  border-radius: 50px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  background-color: aqua;
+}

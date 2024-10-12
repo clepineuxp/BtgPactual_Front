@@ -1,0 +1,36 @@
+<mat-card class="send-modal-container-card">
+  <h4 class="center-text">Vinculacion exitosa</h4>
+
+  <p>La vinculacion al fondo {{fundName}} se ha realizado con éxito, ¿desea enviar una notificar?</p>
+
+  <p>Seleccione modalidad de notificación</p>
+
+  <p>
+    <mat-slide-toggle labelPosition="before" (change)="sendEmail = !sendEmail" [checked]="sendEmail">Email</mat-slide-toggle>
+  </p>
+  <p>
+    <mat-slide-toggle labelPosition="before" (change)="sendEmail = !sendEmail" [checked]="!sendEmail">SMS</mat-slide-toggle>
+  </p>
+
+  <div [formGroup]="form">
+    <mat-form-field *ngIf="!sendEmail">
+      <mat-label>Número de Celular</mat-label>
+      <input matInput formControlName="tel" placeholder="Ingrese su número de celular" required>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="tel?.hasError('required')">El número es obligatorio</mat-error>
+      <mat-error *ngIf="tel?.hasError('pattern')">Ingrese un número de celular válido (10 dígitos)</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field *ngIf="sendEmail">
+      <mat-label>Ingrese Email</mat-label>
+      <input matInput formControlName="email" placeholder="pat@example.com" required>
+      <mat-error *ngIf="email?.hasError('required')">El correo es obligatorio</mat-error>
+      <mat-error *ngIf="email?.hasError('email')">Ingrese un correo válido</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="notify-button-row">
+    <button mat-button (click)="send()">Enviar</button>
+    <button mat-button color="warn" (click)="closeModal(false)">Cancelar</button>
+  </div>
+</mat-card>

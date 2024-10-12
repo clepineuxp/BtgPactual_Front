@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" mode="over" closed>
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="switchTab(tabs.Transactions)">Portal Transacciones</a>
+      <a mat-list-item (click)="switchTab(tabs.TransactionHistory)">Historial Transacciones</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{currentTabTitle}}</span>
+      <span class="span-spacer"></span>
+      <button mat-icon-button aria-label="icon-button with share icon">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="content">
+      @switch (currentTab) {
+        @case (tabs.Transactions) { <app-transactions />}
+        @case (tabs.TransactionHistory) { <app-transaction-history />  }
+        @default { <app-transactions /> }
+      }
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

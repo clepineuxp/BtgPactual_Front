@@ -1,0 +1,43 @@
+<mat-accordion class="headers-align" multi>
+  
+  <mat-expansion-panel disabled>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Monto disponible {{transactionDetails.balance}} </mat-panel-title>
+      <mat-panel-description>
+        Monto invertido {{transactionDetails.amountInvested}}
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Vinculaciones activas </mat-panel-title>
+      <mat-panel-description>
+        Administra Vinculaciones activas
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    
+    <app-unsubscribe-transaction
+    [transactionData]="transactionDetails"
+    (onUnsubscribe)="handleUnsubscribeResponse($event)">
+    </app-unsubscribe-transaction>
+  </mat-expansion-panel>
+  
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Fondos Disponibles </mat-panel-title>
+      <mat-panel-description>
+        ¡Vinvulate a nuevos Fondos!
+        <mat-icon>date_range</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-subscribe-transaction
+    [transactionData]="transactionDetails"
+    (onSubscribe)="handleSubscribeResponse($event)">
+    </app-subscribe-transaction>
+  </mat-expansion-panel>
+
+</mat-accordion>

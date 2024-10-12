@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+
+  th.mat-header-cell, td.mat-cell {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  mat-form-field {
+    font-size: 2px; 
+    margin: 0;
+
+    input {
+      padding: 1px; 
+    }
+  }
+
+  .mat-raised-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+.mat-paginator {
+  font-size: 12px;
+}

@@ -1,0 +1,12 @@
+@if (userLoaded) {
+  <app-home />
+} @else {
+  
+    <div class="button-container">
+      <button mat-fab extended (click)="verifyConnection()">
+        <mat-icon>favorite</mat-icon>
+        No hay conexion con la api, reintentar
+      </button>
+    </div>
+  
+}
